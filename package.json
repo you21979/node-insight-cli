@@ -1,11 +1,11 @@
 {
   "author": "Yuki Akiyama",
   "name": "insight-cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
   "dependencies": {
     "socket.io-client": "1.0.6",
-    "request-promise" : "0.4.x"
+    "limit-request-promise" : ""
   },
   "readmeFilename": "README.md",
   "description": "",
