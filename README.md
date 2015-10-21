@@ -169,6 +169,14 @@ scl.onTransaction(function(data){
 })
 ```
 
+```
+{ txid: '563d078dddf45a83743caa52b44895ab3906399ae40226a5d6e2071f98fdf1a1',
+  valueOut: 0.81596812,
+  vout: 
+   [ { '1LAEqaEB9PzUteWPXubKmCR2vS7BbRR6gJ': 6980000 },
+     { '1BrVQL2FbJZajUn1pb8nQQrDX24NvMdQee': 74616812 } ] }
+```
+
 ### block
 
 ```
