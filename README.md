@@ -9,13 +9,26 @@ npm install insight-cli
 
 ## rest api (promise)
 
+### prepare 
+
+```
+var RestClient = require('insight-cli').RestClient;
+var cli = new RestClient();
+```
+
+or
+
+```
+var RestClient = require('insight-cli').RestClient;
+var timeout = 300;
+var cli = new RestClient('your insight url', timeout);
+```
+
 ### addr
 
 * request
 
 ```
-var InsightRestClient = require('insight-cli').RestClient;
-var cli = new InsightRestClient();
 cli.addr('12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX').then(console.log)
 ```
 
@@ -63,8 +76,112 @@ cli.addr('12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX').then(console.log)
      '0e3e2357e806b6cdb1f70b54c3a3a17b6714ee1f0e68bebb44a74b1efd512098' ] }
 ```
 
+### utxo
+
+* request
+
+```
+cli.utxo(['12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX']).then(console.log)
+```
+
+* response
+
+```
+[ { address: '12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX',
+    txid: 'ddd78924a1e15ad98b28342987d266e95bade122d4d066be6c5aaec91f172209',
+    vout: 0,
+    ts: 1439726931,
+    scriptPubKey: '76a914119b098e2e980a229e139a9ed01a469e518e6f2688ac',
+    amount: 0.0001,
+    confirmations: 6,
+    confirmationsFromCache: true },
+  { address: '12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX',
+    txid: 'a6be9f9f6c2194c9d593859e94a09a307ad4fd16179ea903de055c17b46a299c',
+    vout: 0,
+    ts: 1417737772,
+    scriptPubKey: '76a914119b098e2e980a229e139a9ed01a469e518e6f2688ac',
+    amount: 0.0001,
+    confirmations: 6,
+    confirmationsFromCache: true },
+  { address: '12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX',
+    txid: 'a3a6f902a51a2cbebede144e48a88c05e608c2cce28024041a5b9874013a1e2a',
+    vout: 0,
+    ts: 1395328322,
+    scriptPubKey: '76a914119b098e2e980a229e139a9ed01a469e518e6f2688ac',
+    amount: 0.00333,
+    confirmations: 6,
+    confirmationsFromCache: true },
+  { address: '12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX',
+    txid: 'cea36d008badf5c7866894b191d3239de9582d89b6b452b596f1f1b76347f8cb',
+    vout: 31,
+    ts: 1395315555,
+    scriptPubKey: '76a914119b098e2e980a229e139a9ed01a469e518e6f2688ac',
+    amount: 0.0001,
+    confirmations: 6,
+    confirmationsFromCache: true },
+  { address: '12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX',
+    txid: 'dfdf0b375a987f17056e5e919ee6eadd87dad36c09c4016d4a03cea15e5c05e3',
+    vout: 1,
+    ts: 1357423766,
+    scriptPubKey: '76a914119b098e2e980a229e139a9ed01a469e518e6f2688ac',
+    amount: 0.00001337,
+    confirmations: 6,
+    confirmationsFromCache: true },
+  { address: '12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX',
+    txid: 'd6be34ccf6edddc3cf69842dce99fe503bf632ba2c2adb0f95c63f6706ae0c52',
+    vout: 1,
+    ts: 1306768384,
+    scriptPubKey: '76a914119b098e2e980a229e139a9ed01a469e518e6f2688ac',
+    amount: 0.02,
+    confirmations: 6,
+    confirmationsFromCache: true },
+  { address: '12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX',
+    txid: '0e3e2357e806b6cdb1f70b54c3a3a17b6714ee1f0e68bebb44a74b1efd512098',
+    vout: 0,
+    ts: 1231469665,
+    scriptPubKey: '410496b538e853519c726a2c91e61ec11600ae1390813a627c66fb8be7947be63c52da7589379515d4e0a604f8141781e62294721166bf621e73a82cbf2342c858eeac',
+    amount: 50,
+    confirmations: 6,
+    confirmationsFromCache: true } ]
+```
+
 ## stream api (socket.io)
 
+### prepare
+
+```
+var StreamClient = require('insight-cli').StreamClient;
+var scl = new StreamClient();
+```
+
+or
+
+```
+var StreamClient = require('insight-cli').StreamClient;
+var scl = new StreamClient('your insight url');
+```
+
+### transaction
+
+```
+scl.onTransaction(function(data){
+    console.log(data);
+})
+```
+
+### block
+
+```
+scl.onTransaction(function(data){
+    console.log(data);
+})
+```
+
+### close
+
+```
+scl.close()
+```
 
 ## sample code
 
