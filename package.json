@@ -15,5 +15,10 @@
   "scripts": {
     "test": ""
   },
+  "keywords": [
+    "bitcoin",
+    "insight",
+    "blockexplorer"
+  ],
   "license": "MIT"
 }
