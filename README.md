@@ -1,5 +1,6 @@
 # node-insight-cli
-insight client
+
+api client for blockchain explorer insight
 
 ## install
 
