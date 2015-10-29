@@ -181,7 +181,7 @@ scl.onTransaction(function(data){
 ### block
 
 ```
-scl.onTransaction(function(data){
+scl.onBlock(function(data){
     console.log(data);
 })
 ```
