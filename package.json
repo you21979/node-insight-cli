@@ -15,10 +15,17 @@
   "scripts": {
     "test": ""
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/you21979/node-insight-cli.git"
+  },
   "keywords": [
     "bitcoin",
     "insight",
     "blockexplorer"
   ],
+  "bugs": {
+    "url": "https://github.com/you21979/node-insight-cli/issues"
+  },
   "license": "MIT"
 }
