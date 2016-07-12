@@ -4,6 +4,8 @@
   "version": "0.0.6",
   "private": false,
   "dependencies": {
+    "@you21979/array-util": "https://github.com/you21979/node-array-util.git",
+    "promise-util-task": "0.0.*",
     "socket.io-client": "1.0.*",
     "limit-request-promise" : "0.0.*"
   },
