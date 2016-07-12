@@ -1,7 +1,7 @@
 {
   "author": "Yuki Akiyama",
   "name": "insight-cli",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "private": false,
   "dependencies": {
     "@you21979/array-util": "https://github.com/you21979/node-array-util.git",
