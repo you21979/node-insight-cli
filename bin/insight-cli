@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 var InsightRestClient = require('..').RestClient;
+var StreamClient = require('..').StreamClient;
 
 var lastblock = function(now, last){
     console.log([
@@ -63,6 +64,10 @@ console.log(JSON.stringify(res, null, 2))
     })
 }
 
+var stream = function(now, scl){
+    scl.console()
+}
+
 var showOption = function(now, cli){
     console.log([
 "./insight-cli option",
@@ -92,6 +97,8 @@ var main = function(url, argv){
         return balance(now, cli, argv[1])
     case "utxo":
         return utxo(now, cli, argv[1])
+    case "stream":
+        return stream(now, new StreamClient(url))
     }
     
 }
