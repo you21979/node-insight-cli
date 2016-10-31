@@ -1,13 +1,13 @@
 {
   "author": "Yuki Akiyama",
   "name": "insight-cli",
-  "version": "0.0.9",
+  "version": "0.4.0",
   "private": false,
   "dependencies": {
-    "@you21979/array-util": "https://github.com/you21979/node-array-util.git",
+    "@you21979/array-util": "0.0.1",
     "promise-util-task": "0.0.*",
-    "socket.io-client": "1.0.*",
-    "limit-request-promise" : "0.0.*"
+    "socket.io-client": "1.5.*",
+    "limit-request-promise" : "0.1.*"
   },
   "readmeFilename": "README.md",
   "description": "",
