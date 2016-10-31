@@ -178,3 +178,56 @@ scl.close()
 
 see example directory
 
+## command line tool usage
+
+### install
+
+```
+npm i -g insight-cli
+```
+
+### blocksummary
+
+```
+insight-cli blocksummary
+```
+
+```
+======= blockexplorer ========
+host: https://insight.bitpay.com/api
+======= last block info ========
+date: 2016-10-31 19:05:29
+block height: 436745
+block age: 5 min
+tx size: 998032 byte
+tx count: 2585
+======= 20 block average ========
+block age: 14 min
+tx size: 824869 byte
+tx count: 1816
+```
+
+### balance
+
+```
+insight-cli balance 12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX
+```
+
+### tx
+
+```
+insight-cli tx d6be34ccf6edddc3cf69842dce99fe503bf632ba2c2adb0f95c63f6706ae0c52
+```
+
+### utxo
+
+```
+insight-cli utxo 12c6DSiU4Rq3P4ZxziKxzrL5LmMBrzjrJX
+```
+
+
+
+
+
+
+
