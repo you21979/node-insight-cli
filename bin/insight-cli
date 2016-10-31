@@ -64,6 +64,9 @@ console.log(JSON.stringify(res, null, 2))
     })
 }
 
+var streamfull = function(now, scl){
+    scl.console(0xffffffff)
+}
 var stream = function(now, scl){
     scl.console(0x00ffffff)
 }
@@ -76,6 +79,8 @@ var showOption = function(now, cli){
 "  tx [txid]",
 "  balance [bitcoin address]",
 "  utxo [bitcoin address]",
+"  streamfull",
+"  stream",
 ""
     ].join("\n"))
 }
@@ -97,6 +102,8 @@ var main = function(url, argv){
         return balance(now, cli, argv[1])
     case "utxo":
         return utxo(now, cli, argv[1])
+    case "streamfull":
+        return streamfull(now, new StreamClient(url))
     case "stream":
         return stream(now, new StreamClient(url))
     }
