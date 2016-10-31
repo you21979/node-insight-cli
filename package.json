@@ -1,7 +1,7 @@
 {
   "author": "Yuki Akiyama",
   "name": "insight-cli",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "private": false,
   "dependencies": {
     "@you21979/array-util": "0.0.1",

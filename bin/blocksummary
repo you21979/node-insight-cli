@@ -1,0 +1,52 @@
+#!/usr/bin/env node
+'use strict';
+var InsightRestClient = require('..').RestClient;
+
+var lastblock = function(now, last){
+    console.log([
+"======= last block info ========",
+"date: " + new Date(last.time * 1000).toLocaleString(),
+"block height: " + last.height,
+"block age: " + Math.floor((now - last.time) / 60).toString() + " min",
+"tx size: " + last.size + " byte",
+"tx count: " + last.txlength
+    ].join("\n"))
+}
+
+var average = function(now, blocks){
+    var w = blocks.reduce(function(r,v){
+        r.count++
+        r.age += (r.time - v.time)
+        r.time = v.time
+        r.size += v.size
+        r.txlength += v.txlength
+        return r
+    }, {age:0,time:now,size:0,txlength:0,count:0})
+console.log([
+"======= " + w.count + " block average ========",
+"block age: " + Math.ceil(w.age / 60 / w.count) + " min",
+"tx size: " + Math.ceil(w.size / w.count) + " byte",
+"tx count: " + Math.ceil(w.txlength / w.count)
+].join("\n"))
+}
+
+var cliinfo = function(cli){
+console.log([
+"======= blockexplorer ========",
+"host: " + cli.host
+].join("\n"))
+}
+
+var main = function(url){
+    var now = new Date().getTime() / 1000;
+    var cli = new InsightRestClient(url);
+    cli.blocks({
+        limit:20
+    }).then(function(res){
+        cliinfo(cli)
+        lastblock(now, res.blocks[0])
+        average(now, res.blocks)
+    })
+}
+
+main(process.env['INSIGHT_URL'])
