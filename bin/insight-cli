@@ -30,23 +30,44 @@ console.log([
 ].join("\n"))
 }
 
-var cliinfo = function(cli){
+var cliinfo = function(now, cli){
 console.log([
 "======= blockexplorer ========",
 "host: " + cli.host
 ].join("\n"))
 }
 
-var main = function(url){
-    var now = new Date().getTime() / 1000;
-    var cli = new InsightRestClient(url);
-    cli.blocks({
+var blocksummary = function(now, cli){
+    return cli.blocks({
         limit:20
     }).then(function(res){
-        cliinfo(cli)
+        cliinfo(now, cli)
         lastblock(now, res.blocks[0])
         average(now, res.blocks)
     })
 }
 
-main(process.env['INSIGHT_URL'])
+var showOption = function(now, cli){
+    console.log([
+"./insight-cli option",
+" option:",
+"  blocksummary",
+    ].join("\n"))
+}
+
+var main = function(url, argv){
+    var now = new Date().getTime() / 1000;
+    var cli = new InsightRestClient(url);
+
+    if(argv.length === 0){
+        return showOption(now, cli);
+    }
+
+    switch(argv[0]){
+    case "blocksummary":
+        return blocksummary(now, cli)
+    }
+    
+}
+
+main(process.env['INSIGHT_URL'], process.argv.slice(2))
