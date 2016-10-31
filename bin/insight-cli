@@ -65,7 +65,7 @@ console.log(JSON.stringify(res, null, 2))
 }
 
 var stream = function(now, scl){
-    scl.console()
+    scl.console(0x00ffffff)
 }
 
 var showOption = function(now, cli){

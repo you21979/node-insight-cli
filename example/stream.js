@@ -1,6 +1,6 @@
 var StreamClient = require('..').StreamClient;
 var scl = new StreamClient();
-scl.console()
+scl.console(0xffffff)
 
 setTimeout(function(){
     console.log("end");
