@@ -9,7 +9,7 @@
     "@you21979/http-api-error" : "0.0.*",
     "request": "^2.34",
     "promise-util-task": "0.0.*",
-    "socket.io-client": "1.5.*",
+    "socket.io-client": "1.7.*",
     "limit-request-promise" : "0.1.*"
   },
   "readmeFilename": "README.md",
