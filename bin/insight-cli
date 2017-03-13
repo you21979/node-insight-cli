@@ -58,6 +58,16 @@ var balance = function(now, cli, address){
 console.log(JSON.stringify(res, null, 2))
     })
 }
+var fee = function(now, cli, nblock){
+    return cli.estimateFee(nblock).then(function(res){
+        var v = Object.keys(res).map(function(key){
+            return res[key]
+        }).shift();
+        if(v === -1) return console.log("error");
+        v = Math.floor(v * 1e8 / 1000);
+console.log(JSON.stringify(v, null, 2))
+    })
+}
 var utxo = function(now, cli, address){
     return cli.utxo(address).then(function(res){
 console.log(JSON.stringify(res, null, 2))
@@ -77,6 +87,7 @@ var showOption = function(now, cli){
 " option:",
 "  blocksummary",
 "  tx [txid]",
+"  networkfee [nblock]",
 "  balance [bitcoin address]",
 "  utxo [bitcoin address]",
 "  streamfull",
@@ -98,6 +109,8 @@ var main = function(url, argv){
         return blocksummary(now, cli)
     case "tx":
         return tx(now, cli, argv[1])
+    case "networkfee":
+        return fee(now, cli, argv[1])
     case "balance":
         return balance(now, cli, argv[1])
     case "utxo":
